@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
+    "serve":"live-server"
+      
   },
   "author": "EH",
   "license": "ISC",
   "dependencies": {
     "node-sass": "^4.7.2"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.0"
   }
 }
