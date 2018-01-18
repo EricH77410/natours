@@ -15,6 +15,10 @@
     width: 70%;
     display: block;
     transition: all .3s;
+      
+      @include respond(tab-land) {
+          width: 75%;
+      }
 
 
     &:focus {
@@ -51,6 +55,11 @@
   &__radio-group {
     width: 49%;
     display: inline-block;
+      
+      @include respond(tab-port) {
+          width: 100%;
+          margin-bottom: 2rem;
+      }
   }
 
   &__radio-input {
@@ -62,6 +71,7 @@
     cursor: pointer;
     position: relative;
     padding-left: 4.5rem;
+    
   }
 
   &__radio-button {
@@ -73,6 +83,13 @@
     position: absolute;
     left: 0;
     top: -0.7rem;
+      
+      @include respond(tab-land) {
+          height: 1.5rem;
+          width: 1.5rem;
+          border: 2px solid $color-primary;
+          top: .1rem;
+      }
 
 
     &::after {

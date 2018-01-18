@@ -9,22 +9,42 @@
     font-size: $default-font-size;
     transform: skewX(-12deg);
     
-    & > * {
-        transform: skewX(12deg);
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
     }
+    
+    @include respond(phone) {
+        transform: skewX(0);
+    }
+    
+//    & > * {
+//        transform: skewX(12deg);
+//    }
     
     &__shape {
         width: 15rem;
         height: 15rem;
-        background-color: orange;
         float: left;
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%); //pour que ça marche l'element doit etre float et width et heigth
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
+        
+        
         transform: translateX(-3rem) skewX(12deg);
         position: relative;
         overflow: hidden;
+        border-radius: 50%;
+        
+        @supports(clip-path: circle(0 at 0 0)) or (-webkit-clip-path: circle(0 at 0 0)){
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%); //pour que ça marche l'element doit etre float et width et heigth
+            border-radius: none;
+        }
+        
+        @include respond(phone) {
+            transform: translateX(-3rem) skewX(0);
+        }
     }
     
     &__img {
@@ -32,6 +52,14 @@
         transform: translateX(-4rem) scale(1.4);
         backface-visibility: hidden;
         transition: all .5s ease;
+    }
+    
+    &__text {
+        transform: skewX(12deg);
+        
+        @include respond(phone) {
+            transform: skewX(0);
+        }
     }
     
     &__caption {
